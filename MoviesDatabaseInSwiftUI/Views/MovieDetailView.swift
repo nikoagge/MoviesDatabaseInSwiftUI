@@ -30,38 +30,6 @@ struct MovieDetailView: View {
     }
 }
 
-struct MovieDetailListView: View {
-    let movie: Movie
-    
-    var body: some View {
-        List {
-            MovieDetailImage(imageURL: movie.backgroundURL)
-                .listRowInsets(EdgeInsets())
-        }
-    }
-}
-
-struct MovieDetailImage: View {
-    @ObservedObject private var imageLoader = ImageLoader()
-    let imageURL: URL
-    
-    var body: some View {
-        ZStack {
-            Rectangle()
-                .fill(Color.gray.opacity(0.4))
-            
-            if let image = imageLoader.image {
-                Image(uiImage: image)
-                    .resizable()
-            }
-        }
-        .aspectRatio(16/9, contentMode: .fit)
-        .onAppear {
-            imageLoader.loadImage(with: imageURL)
-        }
-    }
-}
-
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
