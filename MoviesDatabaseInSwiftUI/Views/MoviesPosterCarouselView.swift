@@ -30,15 +30,20 @@ struct MoviesPosterCarouselView: View {
                     spacing: 16
                 ) {
                     ForEach(movies) { movie in
-                        MoviePosterCardView(movie: movie)
-                            .padding(
-                                .leading,
-                                movie.id == movies.first!.id ? 16 : 0
-                            )
-                            .padding(
-                                .trailing,
-                                movie.id == movies.last!.id ? 16 : 0
-                            )
+                        NavigationLink(
+                            destination: MovieDetailView(movieID: movie.id)
+                        ) {
+                            MoviePosterCardView(movie: movie)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        .padding(
+                            .leading,
+                            movie.id == movies.first!.id ? 16 : 0
+                        )
+                        .padding(
+                            .trailing,
+                            movie.id == movies.last!.id ? 16 : 0
+                        )
                     }
                 }
             }

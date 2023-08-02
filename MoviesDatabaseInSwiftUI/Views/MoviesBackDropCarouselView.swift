@@ -27,11 +27,15 @@ struct MoviesBackDropCarouselView: View {
                     spacing: 16
                 ) {
                     ForEach(movies) { movie in
-                        MovieBackDropCardView(movie: movie)
-                            .frame(
-                                width: 310,
-                                height: 200
-                            )
+                        NavigationLink(
+                            destination: MovieDetailView(movieID: movie.id)) {
+                                MovieBackDropCardView(movie: movie)
+                                    .frame(
+                                        width: 310,
+                                        height: 200
+                                    )
+                            }
+                            .buttonStyle(PlainButtonStyle())
                             .padding(
                                 .leading,
                                 movie.id == movies.first!.id ? 16 : 0
