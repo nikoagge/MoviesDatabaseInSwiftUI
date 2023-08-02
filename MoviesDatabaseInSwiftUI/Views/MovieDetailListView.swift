@@ -34,6 +34,68 @@ struct MovieDetailListView: View {
             }
             
             Divider()
+            
+            HStack(
+                alignment: .top,
+                spacing: 4
+            ) {
+                if movie.cast != nil && movie.cast!.count > 0 {
+                    VStack(
+                        alignment: .leading,
+                        spacing: 4
+                    ) {
+                        Text("Starring")
+                            .font(.headline)
+                        ForEach(movie.cast!.prefix(9)) { cast in
+                            Text(cast.name)
+                        }
+                    }
+                    .frame(
+                        minWidth: 0,
+                        maxWidth: .infinity,
+                        alignment: .leading
+                    )
+                    
+                    Spacer()
+                }
+                
+                if let crew = movie.crew, !crew.isEmpty {
+                    VStack(
+                        alignment: .leading,
+                        spacing: 4
+                    ) {
+                        if let directors = movie.directors, !directors.isEmpty {
+                            Text("Director(s)")
+                            ForEach(directors.prefix(2)) { crew in
+                                Text(crew.name)
+                                    .padding()
+                            }
+                        }
+                        
+                        if movie.producers != nil && movie.producers!.count > 0 {
+                            Text("Producer(s)")
+                            ForEach(movie.producers!.prefix(2)) { crew in
+                                Text(crew.name)
+                                    .padding()
+                            }
+                        }
+                        
+                        if movie.screenWriters != nil && movie.screenWriters!.count > 0 {
+                            Text("Screenwriter(s)")
+                            ForEach(movie.screenWriters!.prefix(2)) { crew in
+                                Text(crew.name)
+                            }
+                        }
+                    }
+                    .frame(
+                        minWidth: 0,
+                        maxWidth: .infinity,
+                        alignment: .leading
+                    )
+                }
+            }
+            
+            Divider()
         }
     }
 }

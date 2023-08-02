@@ -25,8 +25,8 @@ struct Movie: Codable, Identifiable {
     let voteCount: Int
     let runtime: Int?
     let releaseDate: String?
-    
     let genres: [MovieGenre]?
+    let credit: MovieCredit?
     
     static private let yearFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -83,8 +83,49 @@ struct Movie: Codable, Identifiable {
         
         return Movie.durationFormatter.string(from: TimeInterval(runtime) * 60) ?? "n/a"
     }
+    
+    var cast: [MovieCast]? {
+        credit?.cast
+    }
+    
+    var crew: [MovieCrew]? {
+        credit?.crew
+    }
+    
+    var directors: [MovieCrew]? {
+        crew?.filter { $0.job.lowercased() == "director" }
+    }
+    
+    var producers: [MovieCrew]? {
+        crew?.filter { $0.job.lowercased() == "producer" }
+    }
+    
+    var screenWriters: [MovieCrew]? {
+        crew?.filter { $0.job.lowercased() == "story" }
+    }
 }
 
 struct MovieGenre: Codable {
+    let name: String
+}
+
+struct MovieCredit: Codable {
+    let cast: [MovieCast]
+    let crew: [MovieCrew]
+}
+
+struct MovieCast:
+    Codable,
+    Identifiable {
+    let character: String
+    let id: Int
+    let name: String
+}
+
+struct MovieCrew:
+    Codable,
+    Identifiable {
+    let id: Int
+    let job: String
     let name: String
 }
