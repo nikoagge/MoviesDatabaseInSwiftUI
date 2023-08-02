@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct MovieDetailListView: View {
+    @State private var selectedTrailer: MovieVideo?
+    
+    private let imageLoader = ImageLoader()
     let movie: Movie
     
     var body: some View {
         List {
-            MovieDetailImage(imageURL: movie.backgroundURL)
+            MovieDetailImage(
+                imageLoader: imageLoader,
+                imageURL: movie.backgroundURL
+            )
                 .listRowInsets(EdgeInsets())
             
             HStack {
@@ -96,6 +102,31 @@ struct MovieDetailListView: View {
             }
             
             Divider()
+            
+            if movie.youtubeTrailers != nil && movie.youtubeTrailers!.count > 0 {
+                Text("Trailers")
+                    .font(.headline)
+                
+                ForEach(movie.youtubeTrailers!) { trailer in
+                    Button {
+                        selectedTrailer = trailer
+                    } label: {
+                        HStack {
+                            Text(trailer.name)
+                            
+                            Spacer()
+                            
+                            Image(systemName: "play.circle.fill")
+                                .foregroundColor(Color(.systemBlue))
+                        }
+                    }
+                }
+            }
+        }
+        .sheet(item: $selectedTrailer) { trailer in
+            if let youtubeURL = trailer.youtubeURL {
+                SafariView(url: youtubeURL)
+            }
         }
     }
 }

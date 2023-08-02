@@ -27,6 +27,7 @@ struct Movie: Codable, Identifiable {
     let releaseDate: String?
     let genres: [MovieGenre]?
     let credit: MovieCredit?
+    let videos: MovieVideoResponse?
     
     static private let yearFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -103,6 +104,10 @@ struct Movie: Codable, Identifiable {
     var screenWriters: [MovieCrew]? {
         crew?.filter { $0.job.lowercased() == "story" }
     }
+    
+    var youtubeTrailers: [MovieVideo]? {
+        videos?.results.filter { $0.youtubeURL != nil }
+    }
 }
 
 struct MovieGenre: Codable {
@@ -128,4 +133,21 @@ struct MovieCrew:
     let id: Int
     let job: String
     let name: String
+}
+
+struct MovieVideoResponse: Codable {
+    let results: [MovieVideo]
+}
+
+struct MovieVideo: Codable, Identifiable {
+    let id: String
+    let key: String
+    let name: String
+    let site: String
+    
+    var youtubeURL: URL? {
+        guard site == "Youtube" else { return nil }
+        
+        return URL(string: "https://youtube.com/watch?v=\(key)")
+    }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MovieDetailImage: View {
-    @ObservedObject private var imageLoader = ImageLoader()
+    @ObservedObject var imageLoader: ImageLoader
     let imageURL: URL
     
     var body: some View {
@@ -30,6 +30,9 @@ struct MovieDetailImage: View {
 
 struct MovieDetailImage_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailImage(imageURL: Movie.stubbedMovie.backgroundURL)
+        MovieDetailImage(
+            imageLoader: ImageLoader(),
+            imageURL: Movie.stubbedMovie.backgroundURL
+        )
     }
 }
