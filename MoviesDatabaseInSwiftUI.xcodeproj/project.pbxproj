@@ -11,6 +11,8 @@
 		171110732A7783DE00CD5217 /* MovieDetailListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171110722A7783DE00CD5217 /* MovieDetailListView.swift */; };
 		171110752A77841300CD5217 /* MovieDetailImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171110742A77841300CD5217 /* MovieDetailImage.swift */; };
 		1714925A2A7A614300ABB8B1 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171492592A7A614300ABB8B1 /* SafariView.swift */; };
+		1714925C2A7A6AD200ABB8B1 /* MovieSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714925B2A7A6AD200ABB8B1 /* MovieSearchView.swift */; };
+		1714925E2A7A6BA300ABB8B1 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714925D2A7A6BA300ABB8B1 /* SearchBarView.swift */; };
 		174B4DF82A76C3C70085B385 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B4DF72A76C3C70085B385 /* MovieDetailView.swift */; };
 		174B4DFA2A76C40D0085B385 /* MovieDetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B4DF92A76C40D0085B385 /* MovieDetailState.swift */; };
 		1763EA702A62F47F009B5F1D /* MoviesDatabaseInSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1763EA6F2A62F47F009B5F1D /* MoviesDatabaseInSwiftUIApp.swift */; };
@@ -41,6 +43,8 @@
 		171110722A7783DE00CD5217 /* MovieDetailListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailListView.swift; sourceTree = "<group>"; };
 		171110742A77841300CD5217 /* MovieDetailImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailImage.swift; sourceTree = "<group>"; };
 		171492592A7A614300ABB8B1 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		1714925B2A7A6AD200ABB8B1 /* MovieSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchView.swift; sourceTree = "<group>"; };
+		1714925D2A7A6BA300ABB8B1 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		174B4DF72A76C3C70085B385 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		174B4DF92A76C40D0085B385 /* MovieDetailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailState.swift; sourceTree = "<group>"; };
 		1763EA6C2A62F47F009B5F1D /* MoviesDatabaseInSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesDatabaseInSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +136,7 @@
 				171110742A77841300CD5217 /* MovieDetailImage.swift */,
 				171110722A7783DE00CD5217 /* MovieDetailListView.swift */,
 				174B4DF72A76C3C70085B385 /* MovieDetailView.swift */,
+				1714925B2A7A6AD200ABB8B1 /* MovieSearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 			children = (
 				1769DB462A6680D70005E7EE /* ActivityIndicatorView.swift */,
 				171492592A7A614300ABB8B1 /* SafariView.swift */,
+				1714925D2A7A6BA300ABB8B1 /* SearchBarView.swift */,
 			);
 			path = UIKitViews;
 			sourceTree = "<group>";
@@ -269,6 +275,7 @@
 				174B4DFA2A76C40D0085B385 /* MovieDetailState.swift in Sources */,
 				17BC95F12A66710D008BAE32 /* MoviesListView.swift in Sources */,
 				176450DA2A65970900237E24 /* MovieBackDropCardView.swift in Sources */,
+				1714925E2A7A6BA300ABB8B1 /* SearchBarView.swift in Sources */,
 				17BC95EF2A666E25008BAE32 /* MoviesPosterCarouselView.swift in Sources */,
 				1769DB492A6681EE0005E7EE /* LoadingView.swift in Sources */,
 				1763EA722A62F47F009B5F1D /* ContentView.swift in Sources */,
@@ -278,6 +285,7 @@
 				176450DE2A65DEFE00237E24 /* MoviePosterCardView.swift in Sources */,
 				1782A0A42A63015D005C576C /* MoviesService.swift in Sources */,
 				1714925A2A7A614300ABB8B1 /* SafariView.swift in Sources */,
+				1714925C2A7A6AD200ABB8B1 /* MovieSearchView.swift in Sources */,
 				17BC95F32A667293008BAE32 /* MoviesListState.swift in Sources */,
 				174B4DF82A76C3C70085B385 /* MovieDetailView.swift in Sources */,
 				1769DB472A6680D70005E7EE /* ActivityIndicatorView.swift in Sources */,
