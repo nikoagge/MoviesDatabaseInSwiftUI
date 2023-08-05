@@ -18,9 +18,10 @@ struct MoviesListView: View {
             List {
                 Group {
                     if let nowPlayingMovies = nowPlayingState.movies {
-                        MoviesPosterCarouselView(
+                        MoviesThumbnailCarouselView(
                             title: "Now Playing",
-                            movies: nowPlayingMovies
+                            movies: nowPlayingMovies,
+                            thumbnailType: .poster()
                         )
                     } else {
                         LoadingView(
@@ -40,9 +41,10 @@ struct MoviesListView: View {
                 
                 Group {
                     if let popularMovies = popularState.movies {
-                        MoviesPosterCarouselView(
+                        MoviesThumbnailCarouselView(
                             title: "Popular",
-                            movies: popularMovies
+                            movies: popularMovies,
+                            thumbnailType: .backdrop
                         )
                     } else {
                         LoadingView(
@@ -62,9 +64,10 @@ struct MoviesListView: View {
                 
                 Group {
                     if let topRatedMovies = topRatedState.movies {
-                        MoviesPosterCarouselView(
+                        MoviesThumbnailCarouselView(
                             title: "Top Rated",
-                            movies: topRatedMovies
+                            movies: topRatedMovies,
+                            thumbnailType: .backdrop
                         )
                     } else {
                         LoadingView(
@@ -84,9 +87,10 @@ struct MoviesListView: View {
                 
                 Group {
                     if let upcomingMovies = upcomingState.movies {
-                        MoviesPosterCarouselView(
+                        MoviesThumbnailCarouselView(
                             title: "Upcoming",
-                            movies: upcomingMovies
+                            movies: upcomingMovies,
+                            thumbnailType: .backdrop
                         )
                     } else {
                         LoadingView(
